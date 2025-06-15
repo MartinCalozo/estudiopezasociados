@@ -2,125 +2,90 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Estudio Jurídico Calozo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PEZ Asociados</title>
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-    }
-    header {
-      background-color: #222;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-    nav {
-      background: #f4f4f4;
-      text-align: center;
-      padding: 10px;
-    }
-    nav a {
-      margin: 0 15px;
-      text-decoration: none;
-      color: #222;
-      font-weight: bold;
-    }
-    .hero {
-      background: #eee;
-      padding: 40px 20px;
-      text-align: center;
-    }
-    .section {
-      max-width: 800px;
-      margin: auto;
-      padding: 30px 20px;
-    }
-    h2 {
-      color: #222;
-    }
-    .contact-form {
-      background: #f9f9f9;
-      padding: 20px;
-      border: 1px solid #ddd;
-    }
-    .contact-form input,
-    .contact-form textarea {
-      width: 100%;
-      padding: 10px;
-      margin-top: 8px;
-      margin-bottom: 15px;
-      border: 1px solid #ccc;
-    }
-    .contact-form button {
-      background-color: #222;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      cursor: pointer;
-    }
-    footer {
-      background-color: #222;
-      color: white;
-      text-align: center;
-      padding: 15px;
-      margin-top: 40px;
-    }
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; line-height: 1.6; }
+    header, section, footer { padding: 20px; max-width: 960px; margin: auto; }
+    header { background: #001f3f; color: white; text-align: center; padding: 40px 20px; }
+    nav ul { list-style: none; padding: 0; display: flex; justify-content: center; gap: 20px; }
+    nav a { color: white; text-decoration: none; font-weight: bold; }
+    section h2 { color: #001f3f; }
+    form input, form textarea { width: 100%; padding: 10px; margin: 10px 0; }
+    form button { padding: 10px 20px; background: #001f3f; color: white; border: none; cursor: pointer; }
+    iframe { width: 100%; height: 300px; border: 0; margin-top: 20px; }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>Estudio Jurídico Calozo</h1>
-    <p>Defendemos tus derechos con compromiso y profesionalismo</p>
-  </header>
-
+<header>
+  <h1>Bienvenidos a PEZ Asociados</h1>
+  <p>Asesoramiento y representación jurídica con excelencia y responsabilidad.</p>
   <nav>
-    <a href="#servicios">Servicios</a>
-    <a href="#nosotros">Nosotros</a>
-    <a href="#contacto">Contacto</a>
-  </nav>
-
-  <section class="hero">
-    <h1>Asesoramiento legal a tu alcance</h1>
-    <p>Especialistas en derecho civil, laboral y penal</p>
-  </section>
-
-  <section class="section" id="servicios">
-    <h2>Servicios</h2>
     <ul>
-      <li>Consultas legales</li>
-      <li>Divorcios y sucesiones</li>
-      <li>Accidentes laborales</li>
-      <li>Defensas penales</li>
-      <li>Contratos y asesoramiento a empresas</li>
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#areas">Áreas de Práctica</a></li>
+      <li><a href="#contacto">Contacto</a></li>
     </ul>
-  </section>
+  </nav>
+</header>
 
-  <section class="section" id="nosotros">
-    <h2>Sobre nosotros</h2>
-    <p>Somos un equipo de abogados con más de 15 años de experiencia en el ejercicio profesional. Nuestro objetivo es brindar un trato personalizado y resultados eficientes.</p>
-  </section>
+<section id="inicio">
+  <h2>Nuestra misión</h2>
+  <p>Acompañar a cada cliente con atención profesional, respuestas claras y estrategias jurídicas efectivas, priorizando siempre la confianza, la transparencia y el respeto.</p>
+  <h2>¿Por qué elegirnos?</h2>
+  <ul>
+    <li>Atención directa y personalizada.</li>
+    <li>Trayectoria y experiencia profesional.</li>
+    <li>Enfoque integral y compromiso ético.</li>
+    <li>Respuestas ágiles y asesoramiento claro.</li>
+  </ul>
+</section>
 
-  <section class="section" id="contacto">
-    <h2>Contacto</h2>
-    <form class="contact-form" method="POST" action="enviar.php">
-      <label for="nombre">Nombre</label>
-      <input type="text" id="nombre" name="nombre" required>
+<section id="nosotros">
+  <h2>Nosotros</h2>
+  <p><strong>Elías Zeballos – Socio Fundador</strong><br>
+  El Dr. Elías Zeballos es abogado y socio fundador de PEZ Asociados. Lidera el estudio con responsabilidad, compromiso y atención personalizada.</p>
+</section>
 
-      <label for="email">Correo electrónico</label>
-      <input type="email" id="email" name="email" required>
+<section id="areas">
+  <h2>Áreas de Práctica</h2>
+  <h3>Derecho de Familia</h3>
+  <p>Divorcios, cuidado personal, comunicación, alimentos, adopciones y violencia familiar.</p>
 
-      <label for="mensaje">Mensaje</label>
-      <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+  <h3>Derecho Laboral</h3>
+  <p>Despidos, accidentes, diferencias salariales y reclamos judiciales. Siempre del lado del trabajador.</p>
 
-      <button type="submit">Enviar</button>
-    </form>
-  </section>
+  <h3>Daños y Perjuicios</h3>
+  <p>Accidentes de tránsito, responsabilidad civil, mala praxis. Buscamos reparación integral.</p>
 
-  <footer>
-    <p>&copy; 2025 Estudio Jurídico Calozo - Rosario, Santa Fe</p>
-  </footer>
+  <h3>Sucesiones</h3>
+  <p>Trámites sucesorios judiciales y extrajudiciales. Servicio ágil y respetuoso.</p>
+</section>
+
+<section id="contacto">
+  <h2>Contacto / Consultas</h2>
+  <p>¿Tenés una consulta legal? Completá el formulario o escribinos directamente y nos pondremos en contacto a la brevedad. También podés agendar una consulta presencial con turno previo.</p>
+
+  <form action="https://formspree.io/f/mwkgezwl" method="POST">
+    <input type="text" name="nombre" placeholder="Nombre completo" required>
+    <input type="email" name="email" placeholder="Correo electrónico" required>
+    <textarea name="mensaje" placeholder="Escribí tu consulta aquí" rows="5" required></textarea>
+    <input type="text" name="_gotcha" style="display:none">
+    <button type="submit">Enviar Consulta</button>
+  </form>
+
+  <p><strong>Email:</strong> pezasociados@gmail.com<br>
+     <strong>Teléfono:</strong> +5493413435115<br>
+     <strong>Dirección:</strong> Saguier 357</p>
+
+  <iframe src="https://www.google.com/maps?q=Saguier+357,+Rosario,+Argentina&output=embed"></iframe>
+</section>
+
+<footer>
+  <p style="text-align:center">&copy; 2025 PEZ Asociados. Todos los derechos reservados.</p>
+</footer>
 
 </body>
 </html>
