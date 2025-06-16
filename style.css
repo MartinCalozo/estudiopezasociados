@@ -51,33 +51,61 @@ body {
   top: 20px;
 }
 
-header {
-  background: url('law-office-header.jpg') center/cover no-repeat;
-  color: white;
-  text-align: center;
-  padding-bottom: 60px;
+/* Header */
+.navbar {
   position: relative;
+  top: 0;
+  width: 100%;
+  background: #001f3f;
+  z-index: 1000;
 }
 
-.header-overlay {
-  background-color: #001f3f;
-  padding: 40px 20px;
-}
-
-nav ul {
-  list-style: none;
-  padding: 0;
+.container {
+  max-width: 960px;
+  margin: auto;
+  padding: 20px;
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 15px;
-  margin-top: 20px;
+  align-items: center;
+  justify-content: space-between;
 }
-nav a {
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.logo img {
+  height: 88px;
+  width: auto;
+  border-radius: 4px; /* opcional si querés bordes redondeados */
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: white;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-menu a {
   color: white;
   text-decoration: none;
-  font-weight: bold;
-  font-size: 1.1em;
+  text-align: center;
 }
 
 section {
@@ -107,6 +135,7 @@ form input, form textarea {
   border-radius: 5px;
   box-sizing: border-box;
 }
+
 form button {
   padding: 12px 25px;
   background: #001f3f;
@@ -147,27 +176,6 @@ footer {
   margin-bottom: 30px;
 }
 
-@media (max-width: 768px) {
-  nav ul {
-    flex-direction: column;
-  }
-  header {
-    padding: 40px 10px;
-  }
-
-  .header-overlay {
-    padding: 30px 10px;
-  }
-
-  section {
-    padding: 20px;
-  }
-
-  form button {
-    width: 100%;
-  }
-}
-
 /* Botones flotantes */
 .floating-buttons {
   position: fixed;
@@ -187,10 +195,12 @@ footer {
   color: white;
   font-size: 24px;
   text-align: center;
-  line-height: 50px;
   text-decoration: none;
   box-shadow: 0 2px 6px rgba(0,0,0,0.3);
   transition: background-color 0.3s ease, transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .fab:hover {
@@ -202,3 +212,52 @@ footer {
   display: none;
 }
 
+/* Botón WhatsApp */
+.fab.whatsapp i {
+  font-size: 30px !important;
+  display: flex !important;
+  background-color: #25D366;
+  color: white;
+}
+
+.fab.whatsapp:hover {
+  background-color: #1ebe5d;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #001f3f;
+    flex-direction: column;
+    display: none;
+  }
+
+  .nav-menu.active {
+    display: flex;
+    animation: slideDown 0.3s ease forwards;
+  }
+
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  section {
+    padding: 20px;
+  }
+
+  form button {
+    width: 100%;
+  } 
+}
+/* Estilo para mostrar/ocultar header en scroll */
+.header.hidden {
+  top: -140px;
+}
