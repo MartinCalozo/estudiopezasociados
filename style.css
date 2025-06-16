@@ -257,7 +257,3 @@ footer {
     width: 100%;
   } 
 }
-/* Estilo para mostrar/ocultar header en scroll */
-.header.hidden {
-  top: -140px;
-}
