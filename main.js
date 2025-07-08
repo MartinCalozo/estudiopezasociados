@@ -1,12 +1,16 @@
+// ============================================================
+// // INICIO DEL DOCUMENTO
+// ============================================================
 document.addEventListener("DOMContentLoaded", function () {
+
+  // ==========================================================
+  // FORMULARIO DE CONTACTO - POPUP de Éxito/Error
+  // ==========================================================
   const form = document.getElementById("contact-form");
   const popup = document.createElement("div");
   popup.className = "popup";
   document.body.appendChild(popup);
 
-  // ------------------------------
-  // Popup de éxito o error
-  // ------------------------------
   function showPopup(message, type = "success") {
     popup.textContent = message;
     popup.className = "popup show " + type;
@@ -26,9 +30,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 4000);
   }
 
-  // ------------------------------
-  // Envío de formulario
-  // ------------------------------
   if (form) {
     form.addEventListener("submit", function (e) {
       e.preventDefault();
@@ -36,9 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
       fetch(form.action, {
         method: form.method,
         body: new FormData(form),
-        headers: {
-          'Accept': 'application/json'
-        }
+        headers: { 'Accept': 'application/json' }
       }).then(response => {
         if (response.ok) {
           showPopup("¡Gracias por tu consulta! Te responderemos a la brevedad.", "success");
@@ -52,9 +51,9 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // ------------------------------
-  // Scroll suave en anclas
-  // ------------------------------
+  // ==========================================================
+  // SCROLL SUAVE EN ANCLAS
+  // ==========================================================
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       const target = document.querySelector(this.getAttribute('href'));
@@ -67,9 +66,9 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // ------------------------------
-  // Menú hamburguesa
-  // ------------------------------
+  // ==========================================================
+  // MENÚ HAMBURGUESA - Mostrar/Ocultar
+  // ==========================================================
   const hamburger = document.getElementById("hamburger");
   const navMenu = document.getElementById("navMenu");
 
@@ -77,19 +76,66 @@ document.addEventListener("DOMContentLoaded", function () {
     navMenu.classList.toggle("active");
   });
 
-  // Opcional: cerrar al hacer click en un enlace
   navMenu.querySelectorAll("a").forEach(link => {
     link.addEventListener("click", () => {
       navMenu.classList.remove("active");
     });
   });
 
+  // ==========================================================
+  // BOTÓN "VOLVER ARRIBA" FLOTANTE
+  // ==========================================================
   const scrollToTop = document.getElementById("scrollToTop");
-    window.addEventListener("scroll", () => {
+
+  window.addEventListener("scroll", () => {
     if (window.scrollY > 100) {
-        scrollToTop.style.display = "flex";
+      scrollToTop.style.display = "flex";
     } else {
-        scrollToTop.style.display = "none";
+      scrollToTop.style.display = "none";
     }
-  })
-});
+  });
+
+}); // ← Fin DOMContentLoaded
+
+
+// ============================================================
+// SLIDER DE IMÁGENES
+// ============================================================
+const slidesContainer = document.getElementById('slideContainer');
+const totalSlides = slidesContainer.children.length;
+const visibleSlides = 5;
+const maxIndex = totalSlides - visibleSlides;
+let currentIndex = 0;
+
+const indicatorBar = document.getElementById('indicatorBar');
+
+// Crear indicadores dinámicamente
+for (let i = 0; i <= maxIndex; i++) {
+  const dot = document.createElement('div');
+  dot.classList.add('indicator');
+  if (i === 0) dot.classList.add('active');
+  dot.addEventListener('click', () => goTo(i));
+  indicatorBar.appendChild(dot);
+}
+
+const indicators = document.querySelectorAll('.indicator');
+
+function updateSlider() {
+  slidesContainer.style.transform = `translateX(-${currentIndex * 20}%)`;
+
+  indicators.forEach((el, i) => {
+    el.classList.toggle('active', i === currentIndex);
+  });
+}
+
+function moveSlide(dir) {
+  currentIndex += dir;
+  if (currentIndex > maxIndex) currentIndex = 0;
+  if (currentIndex < 0) currentIndex = maxIndex;
+  updateSlider();
+}
+
+function goTo(index) {
+  currentIndex = index;
+  updateSlider();
+}
