@@ -2,14 +2,16 @@
 /* ESTILOS GLOBALES */
 /* ============================= */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Lato', sans-serif;
   margin: 0;
   padding: 0;
   line-height: 1.6;
   background-color: #f9f9f9;
   color: #333;
 }
-
+h1, h2, h3 {
+  font-family: 'Libre Baskerville', serif;
+}
 ul {
   padding-left: 20px;
 }
@@ -92,7 +94,7 @@ ul {
   gap: 10px;
   color: white;
   font-weight: bold;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
 }
 
 .logo img {
@@ -134,7 +136,7 @@ ul {
 .hero {
   padding: 0;
   margin-bottom: 0;
-  background: #fff;
+  background: #f9f9f9;
   border-radius: 0;
   box-shadow: none;
   width: 100%;
@@ -219,7 +221,7 @@ ul {
 
 .servicio.dark {
   background-color: #4A6695;
-  color: white;
+  color: #f9f9f9;
 }
 
 .servicio.dark .icono {
@@ -227,7 +229,7 @@ ul {
 }
 
 .servicio.claro {
-  background-color: #fdf6f0;
+  background-color: #f9f9f9;
   color: #333;
 }
 
@@ -250,7 +252,7 @@ ul {
 /* ============================= */
 #nosotros {
   padding: 60px 20px;
-  background: #fff;
+  background: #f9f9f9;
   width: 100%;
   box-sizing: border-box;
 }
@@ -258,6 +260,7 @@ ul {
 #nosotros h2 {
   text-align: center;
   color: #000;
+  font-size: 2rem;
   margin-bottom: 40px;
 }
 
@@ -378,7 +381,7 @@ section {
   padding: 40px 20px;
   max-width: 960px;
   margin: auto;
-  background: white;
+  background: #f9f9f9;
   margin-bottom: 20px;
   border-radius: 10px;
 }
@@ -393,7 +396,8 @@ form input, form textarea {
 }
 
 form button {
-  padding: 12px 25px;
+  padding: 10px 20px;
+  margin-bottom: 10px;
   background: #4A6695;
   color: white;
   border: none;
@@ -479,8 +483,8 @@ footer {
 @media (max-width: 768px) {
   .hero-content,
   .nosotros-contenido {
-    flex-direction: column;
-    padding: 30px 20px;
+    /* flex-direction: column; */
+    padding: 50px 20px 30px;
     text-align: center;
   }
 
@@ -488,6 +492,10 @@ footer {
   .hero-image,
   .nosotros-texto {
     text-align: center;
+  }
+
+  .hero-text ul{
+    list-style-type: none;
   }
 
   .hamburger {
@@ -500,6 +508,7 @@ footer {
     left: 0;
     right: 0;
     background: #4A6695;
+    padding-bottom: 10px;
     flex-direction: column;
     display: none;
   }
@@ -516,6 +525,7 @@ footer {
 
   section {
     padding: 20px;
+    margin: 0px 10px;
   }
 
   form button {
@@ -534,5 +544,45 @@ footer {
 
   .servicio .icono {
     margin: 0 0 10px 0;
+  }
+
+  .servicios-grid .servicio:nth-child(3) {
+    order: 4;
+  }
+
+  .servicios-grid .servicio:nth-child(4) {
+    order: 3;
+  }
+  #nosotros h2 {
+    margin-bottom: 0px;
+  }
+}
+@media (max-width: 576px) {
+  .navbar-container{
+    padding-right: 20px;
+  }
+  .nosotros-imagen img {
+    max-width: 100%;
+  }
+}
+
+.slide {
+  flex: 0 0 calc(100% / 5); /* valor por defecto para escritorio */
+}
+@media (max-width: 1200px) {
+  .slide {
+    flex: 0 0 calc(100% / 4);
+  }
+}
+
+@media (max-width: 979px) {
+  .slide {
+    flex: 0 0 calc(100% / 3);
+  }
+}
+
+@media (max-width: 600px) {
+  .slide {
+    flex: 0 0 calc(100% / 2);
   }
 }

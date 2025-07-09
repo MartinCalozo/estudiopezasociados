@@ -99,35 +99,49 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 // ============================================================
-// SLIDER DE IMÁGENES
+// SLIDER DE IMÁGENES RESPONSIVE
 // ============================================================
 const slidesContainer = document.getElementById('slideContainer');
-const totalSlides = slidesContainer.children.length;
-const visibleSlides = 5;
-const maxIndex = totalSlides - visibleSlides;
-let currentIndex = 0;
-
 const indicatorBar = document.getElementById('indicatorBar');
+const totalSlides = slidesContainer.children.length;
+let currentIndex = 0;
+let visibleSlides = getVisibleSlides();
+let maxIndex = totalSlides - visibleSlides;
 
-// Crear indicadores dinámicamente
-for (let i = 0; i <= maxIndex; i++) {
-  const dot = document.createElement('div');
-  dot.classList.add('indicator');
-  if (i === 0) dot.classList.add('active');
-  dot.addEventListener('click', () => goTo(i));
-  indicatorBar.appendChild(dot);
+// Ajusta el número de slides visibles según el ancho
+function getVisibleSlides() {
+  const width = window.innerWidth;
+  if (width <= 600) return 2;
+  if (width <= 979) return 3;
+  if (width <= 1200) return 4;
+  return 5;
 }
 
-const indicators = document.querySelectorAll('.indicator');
+// Crea los indicadores dinámicamente
+function createIndicators() {
+  indicatorBar.innerHTML = '';
+  maxIndex = totalSlides - visibleSlides;
 
+  for (let i = 0; i <= maxIndex; i++) {
+    const dot = document.createElement('div');
+    dot.classList.add('indicator');
+    if (i === currentIndex) dot.classList.add('active');
+    dot.addEventListener('click', () => goTo(i));
+    indicatorBar.appendChild(dot);
+  }
+}
+
+// Actualiza el slider visualmente
 function updateSlider() {
-  slidesContainer.style.transform = `translateX(-${currentIndex * 20}%)`;
+  const slideWidthPercent = 100 / visibleSlides;
+  slidesContainer.style.transform = `translateX(-${currentIndex * slideWidthPercent}%)`;
 
-  indicators.forEach((el, i) => {
+  document.querySelectorAll('.indicator').forEach((el, i) => {
     el.classList.toggle('active', i === currentIndex);
   });
 }
 
+// Control del slider
 function moveSlide(dir) {
   currentIndex += dir;
   if (currentIndex > maxIndex) currentIndex = 0;
@@ -139,3 +153,16 @@ function goTo(index) {
   currentIndex = index;
   updateSlider();
 }
+
+// Al cambiar el tamaño de la ventana, recalcula los valores
+window.addEventListener('resize', () => {
+  visibleSlides = getVisibleSlides();
+  maxIndex = totalSlides - visibleSlides;
+  if (currentIndex > maxIndex) currentIndex = maxIndex;
+  createIndicators();
+  updateSlider();
+});
+
+// Inicializar
+createIndicators();
+updateSlider();
