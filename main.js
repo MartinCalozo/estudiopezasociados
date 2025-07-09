@@ -166,3 +166,33 @@ window.addEventListener('resize', () => {
 // Inicializar
 createIndicators();
 updateSlider();
+
+// ------------------------------
+// Soporte para deslizar en mobile
+// ------------------------------
+let startX = 0;
+let endX = 0;
+
+slidesContainer.addEventListener('touchstart', (e) => {
+  startX = e.touches[0].clientX;
+}, { passive: true });
+
+slidesContainer.addEventListener('touchmove', (e) => {
+  endX = e.touches[0].clientX;
+}, { passive: true });
+
+slidesContainer.addEventListener('touchend', () => {
+  const diffX = endX - startX;
+
+  if (Math.abs(diffX) > 50) { // umbral mínimo para considerar swipe
+    if (diffX < 0) {
+      moveSlide(1); // deslizó hacia la izquierda
+    } else {
+      moveSlide(-1); // deslizó hacia la derecha
+    }
+  }
+
+  // Reset
+  startX = 0;
+  endX = 0;
+});
