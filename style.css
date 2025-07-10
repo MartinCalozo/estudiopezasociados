@@ -23,6 +23,14 @@ ul {
   border-radius: 8px;
 }
 
+.oculto {
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  left: -9999px;
+  top: -9999px;
+}
+
 /* ============================= */
 /* POPUP DE NOTIFICACIÓN */
 /* ============================= */
@@ -158,7 +166,7 @@ ul {
   min-width: 300px;
 }
 
-.hero-text h1 {
+.hero-text .h2-inicio {
   font-size: 2.5rem;
   color: #000;
   margin-bottom: 20px;
@@ -202,7 +210,9 @@ ul {
   grid-template-columns: 1fr 1fr;
   gap: 30px;
 }
-
+.servicios-grid a{
+  text-decoration: none;
+}
 .servicio {
   display: flex;
   flex-direction: row;
@@ -212,7 +222,6 @@ ul {
   gap: 20px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
-
 .servicio .icono {
   font-size: 50px;
   flex-shrink: 0;
@@ -222,6 +231,7 @@ ul {
 .servicio.dark {
   background-color: #4A6695;
   color: #f9f9f9;
+  cursor: pointer;
 }
 
 .servicio.dark .icono {
@@ -231,6 +241,7 @@ ul {
 .servicio.claro {
   background-color: #f9f9f9;
   color: #333;
+  cursor: pointer;
 }
 
 .servicio.claro .icono {
@@ -451,7 +462,9 @@ iframe {
   background-color: #003366;
   transform: scale(1.1);
 }
-
+.fab:active, #scrollToTop:active {
+  background-color: #4A6695;
+}
 #scrollToTop {
   display: none;
 }
