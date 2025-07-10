@@ -96,6 +96,10 @@ ul {
   justify-content: space-between;
 }
 
+.navbar-container{
+  max-width: 1200px;
+}
+
 .logo {
   display: flex;
   align-items: center;
@@ -209,6 +213,9 @@ ul {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 30px;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
 }
 .servicios-grid a{
   text-decoration: none;
@@ -390,7 +397,7 @@ ul {
 
 section {
   padding: 40px 20px;
-  max-width: 960px;
+  max-width: 1200px;
   margin: auto;
   background: #f9f9f9;
   margin-bottom: 20px;
