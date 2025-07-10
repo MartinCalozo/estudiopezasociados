@@ -559,11 +559,11 @@ footer {
     margin: 0 0 10px 0;
   }
 
-  .servicios-grid .servicio:nth-child(3) {
+  .servicios-grid a:nth-child(3) {
     order: 4;
   }
 
-  .servicios-grid .servicio:nth-child(4) {
+  .servicios-grid a:nth-child(4) {
     order: 3;
   }
   #nosotros h2 {
@@ -580,7 +580,7 @@ footer {
 }
 
 .slide {
-  flex: 0 0 calc(100% / 5); /* valor por defecto para escritorio */
+  flex: 0 0 calc(100% / 5); 
 }
 @media (max-width: 1200px) {
   .slide {
