@@ -173,6 +173,11 @@ updateSlider();
 let startX = 0;
 let endX = 0;
 
+let autoplay = setInterval(() => {
+  moveSlide(1);
+}, 5000);
+
+
 slidesContainer.addEventListener('touchstart', (e) => {
   startX = e.touches[0].clientX;
 }, { passive: true });
